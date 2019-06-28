@@ -23,7 +23,7 @@ This server has two API.
 
     The paramete of `get_img_flg` is boolean.
     If true, return image data embeded bbox of yolo resuls.
-    This parameter is optional and the defalut value is true.
+    This parameter is optional and the default value is true.
 
 # SoftWare requirements
 - Python > 3.6
