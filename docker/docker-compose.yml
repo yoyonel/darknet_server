@@ -3,8 +3,8 @@ version: '2.3'
 services:
   darknet_python_server:
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ..
+      dockerfile: docker/Dockerfile
     runtime: nvidia
     container_name: darknet_python_server_ver1
     ports:

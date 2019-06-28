@@ -1,0 +1,5 @@
+- Packaged this repo to decent Python package project/application ! (setup.py, MANIFEST, ...)
+- Refactor the python code (server, client)
+- Refactor Dockerfile, docker-compose and scripts
+    - Separate darknet building and darknet_server deployement/building
+- Remove coupling with OpenCV2 and the server. OpenCV is used just for rendering image result (not processing).

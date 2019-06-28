@@ -196,13 +196,6 @@ class Darknet(object):
                                  0)
         self.meta = self.load_meta(self.datafilepath)
 
-    def load_image(imagefilepath):
-        """
-        loading image
-        """
-        image = self.load_image(imagefilepath, 0, 0)
-        return image
-
     def convert_to_yolo_img(self, img):
         """
         converting from rgb(PIL) image class to yolo image class

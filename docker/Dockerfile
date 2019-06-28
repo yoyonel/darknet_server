@@ -12,15 +12,20 @@ WORKDIR /opt/darknet
 RUN git checkout 61c9d02ec461e30d55762ec7669d6a1d3c356fb2
 RUN sed -i -e "s/GPU\=0/GPU\=1/" -e "s/OPENCV\=0/OPENCV\=1/g" Makefile
 RUN make
-WORKDIR /opt/
-RUN git clone https://github.com/komorin0521/darknet_server
+
+WORKDIR /tmp/
+RUN wget https://pjreddie.com/media/files/yolov3.weights
+
+COPY docker/cfg/yolov3.cfg /opt/darknet/cfg/.
+
+#WORKDIR /opt/
+#RUN git clone https://github.com/komorin0521/darknet_server
+#WORKDIR /opt/darknet_server
+#RUN git checkout devel
+COPY . /opt/darknet_server
 WORKDIR /opt/darknet_server
-RUN git checkout devel
 RUN pip3 install pip --upgrade
 RUN pip3 install --no-cache-dir -r ./requirements.txt
 RUN ln -sf /opt/darknet/data ./
-WORKDIR /tmp/
-RUN wget https://pjreddie.com/media/files/yolov3.weights
-WORKDIR /opt/darknet_server
-COPY cfg/yolov3.cfg /opt/darknet/cfg/.
+
 CMD ["python3", "./darknet_server.py"]
