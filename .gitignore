@@ -1,3 +1,5 @@
+data/*
+
 upload/*.jpg
 !upload/.gitkeep
 
@@ -5,6 +7,9 @@ log/*.log
 !log/.gitkeep
 
 test.png
+
+# VSCode
+.vscode/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

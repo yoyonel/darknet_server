@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-
 """
 simple client script
+
+TODO: use argparse + var env to parametrize a bit !
 """
 
 import base64

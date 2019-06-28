@@ -1,4 +1,7 @@
-FROM nvidia/cuda:9.2-devel-ubuntu16.04
+FROM nvidia/cuda:9.2-devel-ubuntu18.04
+ARG DEBIAN_FRONTEND=noninteractive
+ENV TZ=Europe/Paris
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN set -x && \
     apt update && \
     apt install -y --no-install-recommends \
@@ -19,4 +22,5 @@ RUN ln -sf /opt/darknet/data ./
 WORKDIR /tmp/
 RUN wget https://pjreddie.com/media/files/yolov3.weights
 WORKDIR /opt/darknet_server
+COPY cfg/yolov3.cfg /opt/darknet/cfg/.
 CMD ["python3", "./darknet_server.py"]
