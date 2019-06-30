@@ -1,4 +1,6 @@
-FROM nvidia/cuda:9.2-devel-ubuntu18.04
+#FROM nvidia/cuda:9.2-devel-ubuntu18.04
+FROM nvidia/cuda:10.1-devel-ubuntu18.04
+
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Europe/Paris
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
